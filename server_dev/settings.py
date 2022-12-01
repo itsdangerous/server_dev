@@ -75,8 +75,13 @@ WSGI_APPLICATION = 'server_dev.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '172.17.0.1',
+        'NAME': 'mysql-container',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'PORT': '9876',
+        'OPTIONS': {'charset':'utf8mb4'},
     }
 }
 
