@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'server_dev.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '172.17.0.1',
-        'NAME': 'mysql-container',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'PORT': '9876',
+        'HOST': 'server-mysql.cg2kscgliqni.ap-northeast-2.rds.amazonaws.com',
+        'NAME': 'server_db',
+        'USER': 'gyu',
+        'PASSWORD': '!a23sd1a',
+        'PORT': '3306',
         'OPTIONS': {'charset':'utf8mb4'},
     }
 }
