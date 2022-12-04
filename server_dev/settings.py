@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-6ku+vkb7=3xh3l31uiw(ibt4*0lllat+_j&u&qa=-!p4j&f%w3
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -39,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'rest_framework',
+    'todo',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,7 +55,7 @@ ROOT_URLCONF = 'server_dev.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR.joinpath('templates')],  # [BASE_DIR / 'templates'] 장고 4.1.3은 os.path 디짐
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server_dev.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -84,10 +81,9 @@ DATABASES = {
         'USER': 'gyu',
         'PASSWORD': '!a23sd1a',
         'PORT': '3306',
-        'OPTIONS': {'charset':'utf8mb4'},
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -107,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -118,7 +113,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
