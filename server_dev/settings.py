@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'rest_framework',
+    'corsheaders',
     'todo',
 ]
 
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'server_dev.urls'
@@ -73,11 +75,23 @@ WSGI_APPLICATION = 'server_dev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': 'server-mysql.cg2kscgliqni.ap-northeast-2.rds.amazonaws.com',
+#         'NAME': 'server_db',
+#         'USER': 'gyu',
+#         'PASSWORD': '!a23sd1a',
+#         'PORT': '3306',
+#         'OPTIONS': {'charset': 'utf8mb4'},
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'server-mysql.cg2kscgliqni.ap-northeast-2.rds.amazonaws.com',
-        'NAME': 'server_db',
+        'HOST': 'db-test.cg2kscgliqni.ap-northeast-2.rds.amazonaws.com',
+        'NAME': 'db_test',
         'USER': 'gyu',
         'PASSWORD': '!a23sd1a',
         'PORT': '3306',
@@ -123,3 +137,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
